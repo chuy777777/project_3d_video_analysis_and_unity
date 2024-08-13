@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  app:
+    build: 
+      dockerfile: app_docker/Dockerfile
+      context: ../
+    image: chuy777/project_3d_video_analysis_and_unity:v1
+    container_name: project_3d_video_analysis_and_unity
+    env_file: ./../app/.env
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DISPLAY=$DISPLAY
+    privileged: true
+    volumes:
+      - volume_project_3d_video_analysis_and_unity:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro    # UI
+      - /dev:/dev:ro                        # USB Devices
+    ports:
+      - 5000:5000/tcp
+    networks:
+      - network_project_3d_video_analysis_and_unity
+
+volumes:
+  volume_project_3d_video_analysis_and_unity:
+    name: volume_project_3d_video_analysis_and_unity
+    external: false
+
+networks:
+  network_project_3d_video_analysis_and_unity:
+    name: network_project_3d_video_analysis_and_unity
+    external: true
