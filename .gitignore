@@ -4,6 +4,7 @@ project/app/pages/video_analysis/video_recording/
 project/app/pinhole_camera_model/optimal_parameters/
 project/unity/Executable/
 __pycache__/
+documents/
 
 # Archivo editado por mi del gitignore para Unity
 # This .gitignore file should be placed at the root of your Unity project directory
